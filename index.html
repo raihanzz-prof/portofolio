@@ -1,0 +1,830 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portofolio | Raihan</title>
+    <meta
+      name="description"
+      content="Portofolio digital: karya, pengalaman, dan layanan kreatif."
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ink: "#0a0908",
+              slate: "#22333b",
+              paper: "#eae0d5",
+              sand: "#c6ac8f",
+              bark: "#5e503f",
+            },
+            fontFamily: {
+              brand: ["HelveticaNowDisplay", "sans-serif"],
+            },
+            boxShadow: {
+              soft: "0 30px 80px -40px rgba(34, 51, 59, 0.45)",
+            },
+            keyframes: {
+              float: {
+                "0%, 100%": { transform: "translateY(0px)" },
+                "50%": { transform: "translateY(-10px)" },
+              },
+              glow: {
+                "0%, 100%": {
+                  boxShadow: "0 0 0 0 rgba(198, 172, 143, 0.45)",
+                },
+                "50%": {
+                  boxShadow: "0 0 0 18px rgba(198, 172, 143, 0)",
+                },
+              },
+            },
+            animation: {
+              float: "float 6s ease-in-out infinite",
+              glow: "glow 4s ease-in-out infinite",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      @font-face {
+        font-family: "HelveticaNowDisplay";
+        src: url("HelveticaNowDisplay-Regular.ttf") format("truetype");
+        font-weight: 400;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "HelveticaNowDisplay";
+        src: url("HelveticaNowDisplay-Medium.ttf") format("truetype");
+        font-weight: 500;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "HelveticaNowDisplay";
+        src: url("HelveticaNowDisplay-Bold.ttf") format("truetype");
+        font-weight: 700;
+        font-display: swap;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-paper font-brand text-ink antialiased
+    bg-[radial-gradient(900px_circle_at_top,_rgba(198,172,143,0.35),_transparent_60%)]"
+  >
+    <div
+      id="scrollProgress"
+      class="fixed left-0 top-0 z-[60] h-1 w-0 bg-slate
+      transition-[width] duration-150"
+    ></div>
+
+    <header
+      class="sticky top-0 z-50 border-b border-bark/20 bg-paper/80
+      backdrop-blur"
+    >
+      <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+        <a
+          href="#home"
+          class="flex items-center gap-3 text-lg font-semibold tracking-wide"
+        >
+          <span
+            class="flex h-10 w-10 items-center justify-center rounded-full
+            bg-slate text-paper font-semibold text-lg italic"
+          >
+            R
+          </span>
+          Raihan
+        </a>
+        <div class="hidden items-center gap-2 md:flex">
+          <a
+            href="#home"
+            data-section="home"
+            class="rounded-full px-4 py-2 text-sm font-medium text-bark
+            transition hover:bg-sand/40"
+            >Beranda</a
+          >
+          <a
+            href="#about"
+            data-section="about"
+            class="rounded-full px-4 py-2 text-sm font-medium text-bark
+            transition hover:bg-sand/40"
+            >Tentang Saya</a
+          >
+          <a
+            href="#projects"
+            data-section="projects"
+            class="rounded-full px-4 py-2 text-sm font-medium text-bark
+            transition hover:bg-sand/40"
+            >Halaman Project</a
+          >
+          <a
+            href="#contact"
+            data-section="contact"
+            class="rounded-full px-4 py-2 text-sm font-medium text-bark
+            transition hover:bg-sand/40"
+            >Kontak</a
+          >
+        </div>
+        <div class="hidden items-center gap-3 md:flex">
+          <a
+            href="#projects"
+            class="rounded-full border border-bark/30 px-5 py-2 text-sm
+            font-semibold text-bark transition hover:border-bark hover:bg-bark
+            hover:text-paper"
+            >Lihat Karya</a
+          >
+          <a
+            href="#contact"
+            class="rounded-full bg-slate px-5 py-2 text-sm font-semibold
+            text-paper shadow-soft transition hover:bg-ink"
+            >Hubungi Saya</a
+          >
+        </div>
+        <button
+          id="menuBtn"
+          class="flex h-11 w-11 items-center justify-center rounded-full
+          border border-bark/30 text-bark transition hover:bg-sand/40
+          md:hidden"
+          aria-label="Buka menu"
+          aria-expanded="false"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </nav>
+      <div
+        id="mobileMenu"
+        class="hidden border-t border-bark/20 bg-paper/95 md:hidden"
+      >
+        <div class="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-4">
+          <a
+            href="#home"
+            data-section="home"
+            class="rounded-2xl px-4 py-3 text-sm font-semibold text-bark
+            transition hover:bg-sand/40"
+            >Beranda</a
+          >
+          <a
+            href="#about"
+            data-section="about"
+            class="rounded-2xl px-4 py-3 text-sm font-semibold text-bark
+            transition hover:bg-sand/40"
+            >Tentang Saya</a
+          >
+          <a
+            href="#projects"
+            data-section="projects"
+            class="rounded-2xl px-4 py-3 text-sm font-semibold text-bark
+            transition hover:bg-sand/40"
+            >Halaman Project</a
+          >
+          <a
+            href="#contact"
+            data-section="contact"
+            class="rounded-2xl px-4 py-3 text-sm font-semibold text-bark
+            transition hover:bg-sand/40"
+            >Kontak</a
+          >
+          <a
+            href="#contact"
+            class="mt-2 inline-flex items-center justify-center rounded-full
+            bg-slate px-5 py-3 text-sm font-semibold text-paper shadow-soft"
+            >Hubungi Saya</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="relative overflow-hidden">
+        <div class="mx-auto max-w-6xl px-4 pb-16 pt-14 lg:pb-24 lg:pt-20">
+          <div class="grid items-center gap-12 lg:grid-cols-[1.15fr,0.85fr]">
+            <div
+              data-reveal
+              class="space-y-6 opacity-0 translate-y-6 transition-all
+              duration-700"
+            >
+              <div
+                class="inline-flex items-center gap-2 rounded-full bg-sand/40
+                px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em]
+                text-bark"
+              >
+                <span class="h-2 w-2 rounded-full bg-bark"></span>
+                Halo, Saya Raihan
+              </div>
+              <h1 class="text-4xl font-semibold text-ink sm:text-5xl">
+                Web Developer & Designer yang Suka Membuat Website Keren
+              </h1>
+              <p class="max-w-xl text-base text-slate/80">
+                Saya percaya bahwa sebuah website bukan hanya sekadar tampilan, tapi juga
+                pengalaman. Saya membuat website yang indah, cepat, dan mudah digunakan.
+                Mari kita ciptakan sesuatu yang luar biasa bersama!
+              </p>
+              <div class="flex flex-wrap gap-3">
+                <a
+                  href="#projects"
+                  class="inline-flex items-center gap-2 rounded-full bg-slate
+                  px-6 py-3 text-sm font-semibold text-paper shadow-soft
+                  transition hover:bg-ink"
+                >
+                  Jelajahi Proyek
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a
+                  href="#about"
+                  class="inline-flex items-center gap-2 rounded-full border
+                  border-bark/30 px-6 py-3 text-sm font-semibold text-bark
+                  transition hover:bg-sand/40"
+                >
+                  Cerita Singkat
+                  <i class="fa-regular fa-user"></i>
+                </a>
+              </div>
+            </div>
+            <div
+              data-reveal
+              class="relative opacity-0 translate-y-6 transition-all
+              duration-700"
+            >
+              <div
+                class="absolute -left-10 -top-12 h-40 w-40 rounded-full
+                bg-sand/50 blur-3xl"
+              ></div>
+              <div
+                class="absolute -bottom-12 -right-10 h-52 w-52 rounded-full
+                bg-slate/20 blur-3xl"
+              ></div>
+              <div class="space-y-6">
+                <div class="rounded-3xl bg-slate p-6 text-paper shadow-soft">
+                  <div class="flex items-center justify-between">
+                    <div class="space-y-2">
+                      <p
+                        class="text-xs uppercase tracking-[0.3em]
+                        text-sand/70"
+                      >
+                        Apa yang saya buat
+                      </p>
+                      <p class="text-xl font-semibold">
+                        Website yang indah dan berfungsi dengan baik
+                      </p>
+                    </div>
+                    <span
+                      class="flex h-12 w-12 items-center justify-center
+                      rounded-2xl bg-paper/10 text-sand"
+                    >
+                      <i class="fa-solid fa-rocket"></i>
+                    </span>
+                  </div>
+                  <div
+                    class="mt-6 flex items-center gap-3 text-sm text-paper/70"
+                  >
+                    <span class="h-2 w-2 rounded-full bg-sand"></span>
+                    Dari konsep hingga live di dunia nyata
+                  </div>
+                </div>
+                <div
+                  class="rounded-3xl border border-bark/20 bg-paper p-6
+                  shadow-soft"
+                >
+                  <div class="flex items-center gap-4">
+                    <span
+                      class="flex h-12 w-12 items-center justify-center
+                      rounded-2xl bg-sand/40 text-bark"
+                    >
+                      <i class="fa-solid fa-code"></i>
+                    </span>
+                    <div>
+                      <p class="text-sm uppercase tracking-[0.2em] text-bark">
+                        Keahlian Saya
+                      </p>
+                      <p class="text-lg font-semibold text-slate">
+                        Code + Design = Magic
+                      </p>
+                    </div>
+                  </div>
+                  <div class="mt-6 grid grid-cols-2 gap-3 text-xs text-bark">
+                    <span
+                      class="rounded-full border border-bark/20 px-3 py-1
+                      text-center"
+                      >Research</span
+                    >
+                    <span
+                      class="rounded-full border border-bark/20 px-3 py-1
+                      text-center"
+                      >Wireframe</span
+                    >
+                    <span
+                      class="rounded-full border border-bark/20 px-3 py-1
+                      text-center"
+                      >Prototype</span
+                    >
+                    <span
+                      class="rounded-full border border-bark/20 px-3 py-1
+                      text-center"
+                      >Launch</span
+                    >
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="about" class="border-t border-bark/20 bg-paper/70">
+        <div class="mx-auto max-w-6xl px-4 py-16 lg:py-24">
+          <div class="grid items-center gap-12 lg:grid-cols-[1fr,1.2fr]">
+            <!-- Foto Profil dengan Border -->
+            <div
+              data-reveal
+              class="flex justify-center opacity-0 translate-y-6 transition-all
+              duration-700"
+            >
+              <div
+                class="relative inline-block rounded-3xl overflow-hidden
+                border-8 border-slate shadow-soft"
+              >
+                <img
+                  src="images/raihan-profile.jpg"
+                  alt="Raihan - Web Developer & Designer"
+                  class="w-full h-auto object-cover"
+                  style="width: 320px; height: 400px;"
+                />
+                <div
+                  class="absolute inset-0 rounded-3xl border-8 border-slate opacity-0"
+                ></div>
+              </div>
+            </div>
+            <!-- Content -->
+            <div
+              data-reveal
+              class="space-y-6 opacity-0 translate-y-6 transition-all
+              duration-700"
+            >
+              <div>
+                <p
+                  class="text-xs uppercase tracking-[0.3em] text-bark font-semibold"
+                >
+                  Tentang Saya
+                </p>
+                <h2 class="mt-3 text-3xl font-semibold text-ink">
+                  Seorang Web Developer & Designer yang Obsesif dengan Detail
+                </h2>
+              </div>
+              
+              <p class="text-base text-slate/80 leading-relaxed">
+                Saya adalah seorang pengembang web yang berpengalaman dalam menciptakan pengalaman digital yang tidak hanya indah secara visual, tetapi juga fungsional dan responsif. Dengan keahlian dalam HTML, CSS, JavaScript, dan berbagai framework modern, saya mengubah ide-ide kreatif menjadi website yang hidup dan interaktif.
+              </p>
+              
+              <p class="text-base text-slate/80 leading-relaxed">
+                Setiap project yang saya tangani adalah kesempatan untuk menciptakan sesuatu yang luar biasa. Saya percaya bahwa website bukan hanya kumpulan halaman, tetapi sebuah ekosistem digital yang dirancang dengan tujuan jelas—meningkatkan engagement, mengkonversi pengunjung menjadi customer, dan membangun brand identity yang kuat.
+              </p>
+
+              <div class="grid gap-4 sm:grid-cols-2">
+                <div
+                  class="rounded-2xl border border-bark/20 bg-paper p-4
+                  shadow-soft"
+                >
+                  <div class="flex items-center gap-3">
+                    <span
+                      class="flex h-10 w-10 items-center justify-center
+                      rounded-xl bg-sand/40 text-bark"
+                    >
+                      <i class="fa-solid fa-code"></i>
+                    </span>
+                    <div>
+                      <p class="text-sm font-semibold text-slate">
+                        Web Developer
+                      </p>
+                      <p class="text-xs text-bark">
+                        HTML, CSS, JavaScript, Tailwind
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="rounded-2xl border border-bark/20 bg-paper p-4
+                  shadow-soft"
+                >
+                  <div class="flex items-center gap-3">
+                    <span
+                      class="flex h-10 w-10 items-center justify-center
+                      rounded-xl bg-sand/40 text-bark"
+                    >
+                      <i class="fa-solid fa-palette"></i>
+                    </span>
+                    <div>
+                      <p class="text-sm font-semibold text-slate">
+                        UI/UX Designer
+                      </p>
+                      <p class="text-xs text-bark">
+                        Design System, Prototyping
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap gap-3">
+                <a
+                  href="#contact"
+                  class="inline-flex items-center gap-2 rounded-full bg-slate
+                  px-6 py-3 text-sm font-semibold text-paper shadow-soft
+                  transition hover:bg-ink"
+                >
+                  Mulai Proyek
+                  <i class="fa-solid fa-paper-plane"></i>
+                </a>
+                <a
+                  href="#projects"
+                  class="inline-flex items-center gap-2 rounded-full border
+                  border-bark/30 px-6 py-3 text-sm font-semibold text-bark
+                  transition hover:bg-sand/40"
+                >
+                  Lihat Portfolio
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="border-t border-bark/20 bg-paper/70">
+        <div class="mx-auto max-w-6xl px-4 py-16 lg:py-24">
+          <div class="flex flex-wrap items-end justify-between gap-6">
+            <div>
+              <p
+                class="text-xs uppercase tracking-[0.3em] text-bark font-semibold"
+              >
+                Portofolio
+              </p>
+              <h2 class="mt-3 text-3xl font-semibold text-ink">
+                Beberapa proyek terbaru dengan hasil nyata.
+              </h2>
+            </div>
+            <div class="flex items-center gap-3 text-sm text-bark">
+              <span class="h-2 w-2 rounded-full bg-bark"></span>
+              Update terakhir: 2026
+            </div>
+          </div>
+          <div class="mt-10 grid gap-6 lg:grid-cols-3">
+            <article
+              data-reveal
+              class="group flex h-full flex-col rounded-lg border
+              border-bark/30 bg-paper p-6 shadow-soft opacity-0 translate-y-6
+              transition-all duration-700"
+            >
+              <div
+                class="flex h-44 items-center justify-center rounded-lg
+                bg-[radial-gradient(circle_at_top,_rgba(34,51,59,0.35),_transparent_60%)]"
+              >
+                <span
+                  class="flex h-16 w-16 items-center justify-center rounded-lg
+                  bg-slate text-paper group-hover:animate-float"
+                >
+                  <i class="fa-solid fa-utensils"></i>
+                </span>
+              </div>
+              <div class="mt-6 flex-1 space-y-3">
+                <p class="text-xs uppercase tracking-[0.3em] text-bark">
+                  Website Landing Page
+                </p>
+                <h3 class="text-xl font-semibold text-slate">
+                  Mang Kobel's Kitchen
+                </h3>
+                <p class="text-sm text-slate/75">
+                  Landing page untuk restoran kuliner dengan design modern dan
+                  responsif di semua perangkat.
+                </p>
+                <div class="flex flex-wrap gap-2 text-xs text-bark">
+                  <span class="rounded-full border border-bark/20 px-3 py-1"
+                    >HTML</span
+                  >
+                  <span class="rounded-full border border-bark/20 px-3 py-1"
+                    >CSS</span
+                  >
+                  <span class="rounded-full border border-bark/20 px-3 py-1"
+                    >Responsive</span
+                  >
+                </div>
+              </div>
+              <a
+                href="https://mang-kobel.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-6 inline-flex items-center justify-between
+                rounded-lg border border-bark/30 px-4 py-2 text-sm
+                font-semibold text-bark transition group-hover:bg-sand/40"
+              >
+                Kunjungi Website
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </article>
+            <article
+              data-reveal
+              class="group flex h-full flex-col rounded-lg border
+              border-bark/30 bg-paper p-6 shadow-soft opacity-0 translate-y-6
+              transition-all duration-700"
+            >
+              <div
+                class="flex h-44 items-center justify-center rounded-lg
+                bg-[radial-gradient(circle_at_top,_rgba(198,172,143,0.45),_transparent_60%)]"
+              >
+                <span
+                  class="flex h-16 w-16 items-center justify-center rounded-lg
+                  bg-bark text-paper group-hover:animate-float"
+                >
+                  <i class="fa-solid fa-laptop-code"></i>
+                </span>
+              </div>
+              <div class="mt-6 flex-1 space-y-3">
+                <p class="text-xs uppercase tracking-[0.3em] text-bark">
+                  Web Development
+                </p>
+                <h3 class="text-xl font-semibold text-slate">
+                  Ryo Parallax Effect
+                </h3>
+                <p class="text-sm text-slate/75">
+                  Website interaktif dengan efek parallax yang menakjubkan dan
+                  animasi smooth yang menambah kesan profesional.
+                </p>
+                <div class="flex flex-wrap gap-2 text-xs text-bark">
+                  <span class="rounded-full border border-bark/20 px-3 py-1"
+                    >JavaScript</span
+                  >
+                  <span class="rounded-full border border-bark/20 px-3 py-1"
+                    >Animation</span
+                  >
+                  <span class="rounded-full border border-bark/20 px-3 py-1"
+                    >Interactive</span
+                  >
+                </div>
+              </div>
+              <a
+                href="https://ryoparallax.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-6 inline-flex items-center justify-between
+                rounded-lg border border-bark/30 px-4 py-2 text-sm
+                font-semibold text-bark transition group-hover:bg-sand/40"
+              >
+                Kunjungi Website
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </article>
+            <article
+              data-reveal
+              class="group flex h-full flex-col rounded-lg border
+              border-bark/30 bg-paper p-6 shadow-soft opacity-0 translate-y-6
+              transition-all duration-700"
+            >
+              <div
+                class="flex h-44 items-center justify-center rounded-lg
+                bg-[radial-gradient(circle_at_top,_rgba(94,80,63,0.35),_transparent_60%)]"
+              >
+                <span
+                  class="flex h-16 w-16 items-center justify-center rounded-lg
+                  bg-slate text-paper group-hover:animate-float"
+                >
+                  <i class="fa-solid fa-bowl-food"></i>
+                </span>
+              </div>
+              <div class="mt-6 flex-1 space-y-3">
+                <p class="text-xs uppercase tracking-[0.3em] text-bark">
+                  Landing Page
+                </p>
+                <h3 class="text-xl font-semibold text-slate">
+                  Bubur Mas Yanto
+                </h3>
+                <p class="text-sm text-slate/75">
+                  Website landing page untuk bisnis kuliner dengan desain yang
+                  menarik dan user experience yang optimal.
+                </p>
+                <div class="flex flex-wrap gap-2 text-xs text-bark">
+                  <span class="rounded-full border border-bark/20 px-3 py-1"
+                    >HTML</span
+                  >
+                  <span class="rounded-full border border-bark/20 px-3 py-1"
+                    >CSS</span
+                  >
+                  <span class="rounded-full border border-bark/20 px-3 py-1"
+                    >Modern</span
+                  >
+                </div>
+              </div>
+              <a
+                href="https://bubur-mas-yanto.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-6 inline-flex items-center justify-between
+                rounded-lg border border-bark/30 px-4 py-2 text-sm
+                font-semibold text-bark transition group-hover:bg-sand/40"
+              >
+                Kunjungi Website
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section id="contact" class="border-t border-bark/20 bg-paper/70">
+        <div class="mx-auto max-w-6xl px-4 py-16 lg:py-24">
+          <div class="grid items-start gap-10">
+            <div
+              data-reveal
+              class="space-y-6 opacity-0 translate-y-6 transition-all
+              duration-700"
+            >
+              <p
+                class="text-xs uppercase tracking-[0.3em] text-bark font-semibold"
+              >
+                Kontak
+              </p>
+              <h2 class="text-3xl font-semibold text-ink">
+                Siap kolaborasi untuk proyek berikutnya?
+              </h2>
+              <p class="text-sm text-slate/75">
+                Ceritakan kebutuhanmu, saya akan bantu menemukan solusi terbaik.
+              </p>
+              <div class="space-y-4">
+                <div
+                  class="flex items-center gap-4 rounded-2xl border
+                  border-bark/20 bg-paper p-4 shadow-soft"
+                >
+                  <span
+                    class="flex h-11 w-11 items-center justify-center rounded-xl
+                    bg-sand/40 text-bark"
+                  >
+                    <i class="fa-solid fa-envelope"></i>
+                  </span>
+                  <div>
+                    <p class="text-sm font-semibold text-slate">Email</p>
+                    <a
+                      href="mailto:raihanjamil96@gmail.com"
+                      class="text-xs text-bark transition hover:text-slate"
+                    >
+                      raihanjamil96@gmail.com
+                    </a>
+                  </div>
+                </div>
+                <div
+                  class="flex items-center gap-4 rounded-2xl border
+                  border-bark/20 bg-paper p-4 shadow-soft"
+                >
+                  <span
+                    class="flex h-11 w-11 items-center justify-center rounded-xl
+                    bg-sand/40 text-bark"
+                  >
+                    <i class="fa-solid fa-phone"></i>
+                  </span>
+                  <div>
+                    <p class="text-sm font-semibold text-slate">WhatsApp</p>
+                    <a
+                      href="https://wa.me/6285776973421"
+                      class="text-xs text-bark transition hover:text-slate"
+                    >
+                      085776973421
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 text-bark">
+                <a
+                  href="https://www.instagram.com/rayyonz_/"
+                  class="flex h-11 w-11 items-center justify-center rounded-full
+                  border border-bark/30 transition hover:bg-sand/40"
+                  aria-label="Instagram"
+                >
+                  <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a
+                  href="https://github.com/raihanzz-prof"
+                  class="flex h-11 w-11 items-center justify-center rounded-full
+                  border border-bark/30 transition hover:bg-sand/40"
+                  aria-label="Github"
+                >
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-bark/20 bg-paper">
+      <div
+        class="mx-auto flex max-w-6xl flex-col items-center justify-between
+        gap-4 px-4 py-8 text-center text-sm text-bark md:flex-row md:text-left"
+      >
+        <p>
+          <span class="font-semibold text-slate">Raihan</span> - Portofolio
+          Kreatif.
+        </p>
+        <p>
+          <span id="year"></span> Semua hak dilindungi.
+        </p>
+      </div>
+    </footer>
+
+    <button
+      id="backTop"
+      class="fixed bottom-6 right-6 z-40 flex h-12 w-12 items-center
+      justify-center rounded-full bg-slate text-paper opacity-0 transition-all
+      duration-300 hover:bg-ink"
+      aria-label="Kembali ke atas"
+    >
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script>
+      const menuBtn = document.getElementById("menuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const backTop = document.getElementById("backTop");
+      const scrollProgress = document.getElementById("scrollProgress");
+      const navLinks = document.querySelectorAll("[data-section]");
+      const sections = document.querySelectorAll("section[id]");
+      const revealItems = document.querySelectorAll("[data-reveal]");
+
+      const setActiveLink = (id) => {
+        navLinks.forEach((link) => {
+          const isActive = link.dataset.section === id;
+          link.classList.toggle("bg-sand/40", isActive);
+          link.classList.toggle("text-ink", isActive);
+        });
+      };
+
+      menuBtn.addEventListener("click", () => {
+        const isOpen = mobileMenu.classList.toggle("hidden");
+        menuBtn.setAttribute("aria-expanded", String(!isOpen));
+      });
+
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          if (!mobileMenu.classList.contains("hidden")) {
+            mobileMenu.classList.add("hidden");
+            menuBtn.setAttribute("aria-expanded", "false");
+          }
+        });
+      });
+
+      const sectionObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setActiveLink(entry.target.id);
+            }
+          });
+        },
+        { rootMargin: "-40% 0px -50% 0px" }
+      );
+
+      sections.forEach((section) => sectionObserver.observe(section));
+
+      const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("opacity-100", "translate-y-0");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+
+      revealItems.forEach((item) => revealObserver.observe(item));
+
+      const updateProgress = () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight;
+        const winHeight = window.innerHeight;
+        const progress = (scrollTop / (docHeight - winHeight)) * 100;
+        scrollProgress.style.width = `${progress}%`;
+        if (scrollTop > 600) {
+          backTop.classList.remove("opacity-0");
+          backTop.classList.add("opacity-100");
+        } else {
+          backTop.classList.add("opacity-0");
+          backTop.classList.remove("opacity-100");
+        }
+      };
+
+      window.addEventListener("scroll", updateProgress);
+      window.addEventListener("load", updateProgress);
+
+      backTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+    </script>
+  </body>
+</html>
